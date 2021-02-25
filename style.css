@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #e6e6e6;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-size: 16px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.avatar {
+    width: 240px;
+    height: 240px;
+    border: .8rem solid #fff;
+    position: relative;
+    transform: rotate(5deg);
+    box-shadow: 0rem .8rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.avatar__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar__caption {
+    font-size: 5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-50%, -50%) rotate(15deg);
+    color: #d3ae7a;
+}
+
+.avatar__caption {
+    font-size: 5rem;
+    font-weight: bold;
+    position: absolute;
+    top: -25%;
+    right: 0;
+    transform: rotate(15deg);
+    color: #d3ae7a;
+    font-family: serif;
+}
+
+.avatar__tape {
+    font-size: 5rem;
+    font-weight: bold;
+    position: absolute;
+    width: 2rem;
+    height: 5rem;
+    top: -20%;
+    left: 0%;
+    transform: rotate(-25deg);
+    background-color: #c9c8c4;
+    opacity: .7;
+}
+
+.question {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.6rem;
+    margin: 2rem 0;
+}
+
+.selection {
+    width: 360px;
+    height: 120px;
+    position: relative;
+}
+
+.button {
+    background-color: #fff;
+    border: none;
+    padding: .8rem 1.2rem;
+    margin: 0 .5rem;
+    box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .1);
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    border-radius: .5rem;
+    outline: 0;
+    position: absolute;
+    transition: .5s;
+}
+
+.button--confirm {
+    z-index: 1;
+    left: 10%;
+}
+
+.button--cancel {
+    right: 10%;
+}

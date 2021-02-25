@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <figure class="avatar">
+        <img src="./avatar.jpg" alt="" class="avatar__image">
+        <figcaption class="avatar__caption">?</figcaption>
+        <span class="avatar__tape"></span>
+    </figure>
+    <p class="question">Dứt đi cho đỡ khổ ?</p>
+    <section class="selection">
+        <button class="button button--confirm">Dứt đi!!!</button>
+        <button class="button button--cancel">Muốn giữ??</button>
+    </section>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        const confirmBtn = document.querySelector('.button--confirm')
+        const cancelBtn = document.querySelector('.button--cancel')
+
+        let firstHovered = false
+        confirmBtn.addEventListener('click', handleConfirmBtn);
+        cancelBtn.addEventListener('click', handleCancelBtn)
+        cancelBtn.addEventListener('mouseover', handleCancelBtn)
+        function handleConfirmBtn() {
+            let title = 'Gud job!!!'
+            let message = 'Chúc mừng bạn đã vượt qua cửa ải đầu tiên của tính yêu!'
+            swal(title, message, 'success')
+        }
+        function handleCancelBtn() {
+            let rdBtn = Math.floor(Math.random() * 100)
+            // Replace or Move
+            if (rdBtn > 50 && firstHovered === true) return replaceBtn()
+            firstHovered = true
+            moveBtn()
+        }
+        function replaceBtn() {
+            let confirmStyle = getComputedStyle(confirmBtn)
+            let topConfirm = confirmStyle.top
+            let leftConfirm = confirmStyle.left
+
+            let cancelStyle = getComputedStyle(cancelBtn)
+            let topCancel = cancelStyle.top
+            let leftCancel = cancelStyle.left
+
+            // Set confirmBtn position based on cancelBtn position
+            confirmBtn.style.top = topCancel
+            confirmBtn.style.left = leftCancel
+            // Set cancelBtn position based on confirmBtn position
+            cancelBtn.style.top = topConfirm
+            cancelBtn.style.left = leftConfirm
+        }
+
+        function moveBtn() {
+            // Random position
+            let rdTop = Math.floor(Math.random() * 100)
+            let rdLeft = Math.floor(Math.random() * 100)
+
+            rdTop = (rdTop > 90) ? rdTop - 10 : rdTop
+            rdLeft = (rdLeft > 90) ? rdLeft - 10 : rdLeft
+
+            cancelBtn.style.top = `${rdTop}%`
+            cancelBtn.style.left = `${rdLeft}%`
+        }
+    </script>
+</body>
+</html>
